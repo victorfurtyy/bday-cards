@@ -1,6 +1,6 @@
 export default {
 	root: 'src/',
-	publicDir: 'src/public/',
+	publicDir: '../public/',
 	base: './',
 	build:
 	{
