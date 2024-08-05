@@ -1,3 +1,7 @@
+:root {
+    --start-hint-delay: 3s;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -16,10 +20,10 @@ body {
 
 
 .swiper.hint {
-    animation: hint-tilt 2s 3s infinite alternate;
+    animation: hint-tilt 2s var(--start-hint-delay) infinite alternate;
 
     .swiper-slide:nth-child(1) .swiper-slide-shadow-right {
-        animation: hint-opacity 2s 3s infinite alternate;
+        animation: hint-opacity 2s var(--start-hint-delay) infinite alternate;
     }
 }
 
