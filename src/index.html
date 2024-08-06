@@ -15,10 +15,20 @@
 </head>
 <body>
 
-    <div class="swiper hint">
+    <dialog class="modal">
+        <button onclick="this.parentElement.close()">Teste</button>
+    </dialog>
+
+    
+    <img style="position: absolute; right: 1em; bottom: 1em; width: 2em;" src="https://bday-cards.victorfurtyy.tech/assets/favico-BlSqvj48.png" alt="">
+    <div class="swiper">
+        <div class="hint-information">
+            <span>Arraste</span>
+        </div>
+
         <div class="swiper-wrapper">
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide back">Slide 1</div>
+            <div class="swiper-slide front">Slide 2</div>
         </div>
     </div>
 

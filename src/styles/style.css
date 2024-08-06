@@ -1,5 +1,11 @@
 :root {
     --start-hint-delay: 3s;
+    --pink: #FFACCD;
+    --yellow: #FFEFAF;
+    --blue: #CCF4FF;
+
+    --border-radius: 2em;
+    --shadow: 0 0 1.5em #00000030;
 }
 
 * {
@@ -10,7 +16,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #1f1f1f;
+    background-color: var(--yellow);
 
     height: 100dvh;
     display: grid;
@@ -18,13 +24,27 @@ body {
 }
 
 
-
 .swiper.hint {
-    animation: hint-tilt 2s var(--start-hint-delay) infinite alternate;
-
-    .swiper-slide:nth-child(1) .swiper-slide-shadow-right {
-        animation: hint-opacity 2s var(--start-hint-delay) infinite alternate;
+    .hint-information {
+        opacity: 1 !important;
     }
+
+    .swiper-wrapper {
+        animation: hint-tilt 2s var(--start-hint-delay) infinite alternate;
+
+        .swiper-slide:nth-child(1) .swiper-slide-shadow-right {
+            animation: hint-opacity 2s var(--start-hint-delay) infinite alternate;
+        }
+    }
+}
+.hint-information {
+    position: absolute;
+    top: -1.5em;
+    width: 100%;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transition: opacity .4s;
 }
 
 @keyframes hint-tilt {
@@ -32,7 +52,7 @@ body {
         transform: rotateY(0deg);
     }
     25% {
-        transform: rotateY(35deg);
+        transform: rotateY(-35deg);
     }
     50% {
         transform: rotateY(0deg);
@@ -51,22 +71,29 @@ body {
 }
 
 .swiper {
-    transition: transform .4s;
-    width: 240px;
-    height: 320px;
+    transition: transform .4s, scale .4s;
+    aspect-ratio: 545/846;
+    width: 20em;
+    border-radius: var(--border-radius);
 
     .swiper-slide {
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 18px;
+        background-color: var(--yellow);
+        color: #f1f1f1;
+
         font-size: 22px;
+        border-radius: 18px;
         font-weight: bold;
-        background-color: antiquewhite;
-        color: #fff;
 
         .swiper-slide-shadow-right {
             transition: opacity .4s;
         }
+    }
+
+    .back {
+        display: grid;
+        place-items: center;
     }
 }
