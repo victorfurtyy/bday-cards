@@ -28,6 +28,14 @@ function toggleModal(modalId) {
 window.toggleModal = toggleModal;
 
 
+function closeOpenModal() {
+    const modal = document.querySelector('.modal.open');
+    closeModal(modal.id);
+    const duration = Number(getComputedStyle(modal).getPropertyValue('--modal-transition').replace('s', ''))*1000
+    setTimeout(() => openModal(modal.id), duration);
+}
+window.closeOpenModal = closeOpenModal;
+
 
 const swiper = new Swiper('.swiper', {
     effect: 'flip',
@@ -40,6 +48,7 @@ const swiper = new Swiper('.swiper', {
     }
 });
 window.swiper = swiper;
+
 
 
 function disableHint() {
