@@ -9,28 +9,47 @@
 
     <meta property="og:title" content="B-DAY Photocards">
     <meta property="og:description" content="Aqui está os Photocards que você lembrará para sempre">
-    <meta property="og:image" content="img/favico.png">
+    <meta property="og:image" content="https://bday-cards.victorfurtyy.tech/assets/favico-BlSqvj48.png">
     
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 
-    <dialog class="modal">
-        <button onclick="this.parentElement.close()">Teste</button>
+    <dialog class="modal" id="identify">
+        <header class="modal-header">
+            <h3>Quem é você?</h3>
+            <p>Insira seu @ para te identificarmos</p>
+        </header>
+
+        <main class="modal-content">
+            <input type="text">
+        </main>
+        
+        <footer class="modal-footer delay-close">
+            <button class="close" onclick="closeModal('identify')">Fechar</button>
+            <div class="side-button">
+                <button class="close" onclick="closeModal('identify')">Fechar</button>
+                <button class="close" onclick="closeModal('identify')">Fechar</button>
+            </div>
+            <button class="close" onclick="closeModal('identify')">Fechar</button>
+        </footer>
     </dialog>
 
-    
-    <img style="position: absolute; right: 1em; bottom: 1em; width: 2em;" src="https://bday-cards.victorfurtyy.tech/assets/favico-BlSqvj48.png" alt="">
-    <div class="swiper">
+
+    <div class="swiper hint"    >
         <div class="hint-information">
             <span>Arraste</span>
         </div>
 
         <div class="swiper-wrapper">
             <div class="swiper-slide back">Slide 1</div>
-            <div class="swiper-slide front">Slide 2</div>
+            <div class="swiper-slide front" style="
+            background-size: cover;
+            background-image: url('https://th.bing.com/th/id/R.f48ceff9ab3322d4e84ed12a44c484d1?rik=0KQ6OgL4T%2b9uCA&riu=http%3a%2f%2fwww.photo-paysage.com%2falbums%2fuserpics%2f10001%2fCascade_-15.JPG&ehk=kx1JjE9ugj%2bZvUIrjzSmcnslPc7NE1cOnZdra%2f3pJEM%3d&risl=1&pid=ImgRaw&r=0');">Slide 2</div>
         </div>
     </div>
+
+    <div class="background-gradient"></div>
 
     <script src="scripts/index.js" type="module"></script>
 </body>
