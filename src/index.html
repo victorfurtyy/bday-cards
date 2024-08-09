@@ -32,9 +32,7 @@
         </footer>
     </dialog>
 
-    <!-- TODO - splash screen, aurora backgroud turn yellow, and card review -->
-
-    <div class="photocard hint">
+    <div class="photocard">
         <div class="hint-information">
             <div class="bar">
                 <span class="thumb"></span>
@@ -51,8 +49,30 @@
         </div>
     </div>
 
-    <!-- TODO - resolver background - aurora oficial -->
-    <div class="background-gradient"></div>
+    <div class="aurora-background single-background">
+        <div class="color-background"></div>
+        <div class="aurora" style="
+            --bg: var(--blue);
+            --top: 0;
+            --left: 0;
+            --size: 75%;
+            --duration: 10s;
+        "></div>
+        <div class="aurora" style="
+            --bg: var(--yellow);
+            --top: 55%;
+            --left: 10%;
+            --size: 95%;
+            --duration: 5s;
+        "></div>
+        <div class="aurora" style="
+            --bg: var(--pink);
+            --top: 25%;
+            --left: 20%;
+            --size: 50%;
+            --duration: 7s;
+        "></div>
+    </div>
 
     <script src="scripts/index.js" type="module"></script>
     <script src="scripts/modal.js" type="module"></script>

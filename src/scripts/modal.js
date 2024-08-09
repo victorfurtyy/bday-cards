@@ -17,3 +17,4 @@ export function toggleModal(modalId) {
     if (modal.classList.contains('open')) closeModal(modalId);
     else openModal(modalId);
 }
+window.toggleModal = toggleModal;

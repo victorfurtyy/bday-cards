@@ -1,6 +1,6 @@
 :root {
     --start-hint-delay: 3s;
-    --pink: #88787f;
+    --pink: #FFACCD;
     --yellow: #FFEFAF;
     --blue: #CCF4FF;
 
@@ -8,6 +8,8 @@
     --shadow: 0 0 1.5em #00000030;
 
     --modal-transition: .4s;
+
+    --splash-animation: 2s;
 }
 
 
@@ -20,7 +22,6 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--yellow);
 
     height: 100dvh;
     display: grid;
@@ -29,20 +30,56 @@ body {
 
 
 
-
-.background-gradient {
+.aurora-background {
     position: fixed;
-    aspect-ratio: 1;
-    height: 250%;
     z-index: -1;
-    animation: background-gradient-animation 10s infinite linear;
-    background: linear-gradient(-45deg, var(--pink) 25%, var(--blue), var(--yellow) 70%);
+    width: 100dvw;
+    height: 100dvh;
+    background-color: var(--pink);
+    filter: blur(5em);
+    transition: filter var(--splash-animation);
+
+    .color-background {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: var(--yellow);
+        z-index: 1;
+        transition: opacity var(--splash-animation);
+        opacity: 0;
+    }
+    &.single-background {
+        filter: blur(0);
+
+        .color-background {
+            opacity: 1;
+        }
+    }
+
+    .aurora {
+        position: absolute;
+        aspect-ratio: 1;
+        width: var(--size);
+
+        top: var(--top);
+        left: var(--left);
+
+        background-color: var(--bg);
+        animation: alternate-scale 5s linear infinite;
+        animation-duration: var(--duration);
+    }
 }
-@keyframes background-gradient-animation {
+@keyframes alternate-scale {
     0% {
-        rotate: 0deg;
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.2);
+    }
+    75% {
+        transform: scale(.8);
     }
     100% {
-        rotate: 360deg;
+        transform: scale(1);
     }
 }

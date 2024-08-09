@@ -1,3 +1,12 @@
+body:has(.aurora-background.single-background) .photocard {
+    width: 100vw;
+    filter: drop-shadow(0 0 0 #00000000) !important;
+
+    .back::after {
+        box-shadow: inset 0 -2em 2em var(--yellow);
+    }
+}
+
 .photocard.hint {
     .hint-information {
         opacity: 1 !important;
@@ -91,7 +100,8 @@
 
 .photocard {
     user-select: none;
-    transition: transform .4s, scale .4s;
+    transition: .4s;
+    transition: width var(--splash-animation), filter var(--splash-animation);
     aspect-ratio: 545/846;
     width: 20em;
     border-radius: var(--border-radius);

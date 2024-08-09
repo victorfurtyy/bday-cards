@@ -21,7 +21,6 @@ function disableHint() {
 
 
 // REMOVE
-function toggleHint() {
+export function toggleHint() {
     swiper.el.classList.toggle('hint');
 }
-window.toggleHint = toggleHint;
