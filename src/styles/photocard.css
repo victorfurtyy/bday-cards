@@ -100,8 +100,7 @@ body:has(.aurora-background.single-background) .photocard {
 
 .photocard {
     user-select: none;
-    transition: .4s;
-    transition: width var(--splash-animation), filter var(--splash-animation);
+    transition: .4s, width var(--splash-animation), filter var(--splash-animation);
     aspect-ratio: 545/846;
     width: 20em;
     border-radius: var(--border-radius);
@@ -144,6 +143,8 @@ body:has(.aurora-background.single-background) .photocard {
 
     .front {
         background: var(--blue);
+        background-size: cover;
+        background-position: center;
 
         .alt-text-backdrop {
             opacity: 0;

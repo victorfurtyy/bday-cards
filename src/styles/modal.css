@@ -93,3 +93,17 @@
         }
     }
 }
+
+
+
+.modal.shake {
+    animation: shake .5s;
+}
+
+@keyframes shake {
+    0% { left: 0; }
+    25% { left: -1em; }
+    50% { left: 1em; }
+    75% { left: -1em; }
+    100% { left: 0; }
+}

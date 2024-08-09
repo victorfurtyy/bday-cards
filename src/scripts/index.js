@@ -1,6 +1,26 @@
 import { toggleHint } from "./photocard";
+import { openModal, closeModal, shakeModal } from "./modal";
+import { USERS } from "./users";
 
 if (process.env.NODE_ENV === 'development') document.title = 'B-DAY Photo | DEV';
+
+
+function validateUser(username) {
+    username = username.replace('@', '');
+    
+    if (USERS[username]) {
+        const user = USERS[username];
+        const img = document.querySelector('.photocard .front');
+        const desc = document.querySelector('.photocard .alt-text');
+
+        img.style.backgroundImage = `url(./img/users/${user.img})`;
+        desc.innerText = user.desc;
+
+        return true;
+    }
+
+    return false;
+}
 
 
 function splashAnimation() {
@@ -11,4 +31,25 @@ function splashAnimation() {
     
     setTimeout(toggleHint, duration);
 }
-window.splashAnimation = splashAnimation;
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const modalOptions = {
+        buttons: [
+            {
+                text: "Enviar",
+                callback: () => {
+                    const input = document.querySelector('#indentifier');
+
+                    if (validateUser(input.value)) {
+                        splashAnimation();
+                        closeModal('identify');
+                        return;
+                    }
+                    shakeModal();
+                }
+            }
+        ]
+    }
+    openModal('identify', modalOptions);
+});
