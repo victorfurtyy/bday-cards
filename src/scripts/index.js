@@ -13,7 +13,7 @@ function validateUser(username) {
         const img = document.querySelector('.photocard .front');
         const desc = document.querySelector('.photocard .alt-text');
 
-        img.style.backgroundImage = `url(./img/users/${user.img})`;
+        img.style.backgroundImage = `url(${user.img})`;
         desc.innerText = user.desc;
 
         return true;
