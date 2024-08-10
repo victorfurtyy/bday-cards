@@ -35,9 +35,45 @@ function splashAnimation() {
 }
 
 
+function openCloseModal() {
+    const modal = document.querySelector('.modal#incoming');
+    if (modal.classList.contains('open')) {
+        closeModal('incoming');
+        setTimeout(() => {
+            openModal('incoming');
+        }, 400);
+    }
+}
+
+function openCloseModal() {
+    const modal = document.querySelector('.modal#incoming');
+    if (modal.classList.contains('open')) {
+        closeModal('incoming');
+        setTimeout(() => {
+            openModal('incoming');
+        }, 400);
+    }
+}
+
 const inDevelopment = true;
 document.addEventListener('DOMContentLoaded', () => {
-    if (inDevelopment) window.location.href = 'indevelopment.html';
+    if (inDevelopment) {
+        openModal('incoming', {
+            buttons: [
+                {
+                    text: 'Aguarde',
+                    callback: () => {
+                        openCloseModal();
+                    }
+                }
+            ]
+        });
+
+        document.querySelector('#dev-background').style.display = 'block';
+        document.querySelector('.aurora-background').classList.remove('single-background');
+        document.querySelector('.photocard').style.display = 'none';
+        return;
+    }
 
     const modalOptions = {
         buttons: [
