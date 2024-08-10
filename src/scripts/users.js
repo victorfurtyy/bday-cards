@@ -43,8 +43,8 @@ export const USERS = {
         desc: "Mariane",
         img: ""
     },
-    "lud": {
-        desc: "Ludimila",
+    "ludmilla": {
+        desc: "Ludmilla",
         img: ""
     },
     "maju": {
@@ -56,7 +56,7 @@ export const USERS = {
         img: ""
     },
     "joanadarcfurtado_": {
-        desc: "Joana Darc",
+        desc: "Joana D'arc",
         img: ""
     },
     "irli_montelo": {
