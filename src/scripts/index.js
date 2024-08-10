@@ -7,6 +7,8 @@ if (process.env.NODE_ENV === 'development') document.title = 'B-DAY Photo | DEV'
 
 function validateUser(username) {
     username = username.replace('@', '');
+    username = username.toLowerCase();
+    username = username.trim();
     
     if (USERS[username]) {
         const user = USERS[username];
@@ -33,7 +35,10 @@ function splashAnimation() {
 }
 
 
+const inDevelopment = false;
 document.addEventListener('DOMContentLoaded', () => {
+    if (inDevelopment) window.location.href = 'indevelopment.html';
+
     const modalOptions = {
         buttons: [
             {

@@ -4,7 +4,11 @@ export function openModal(modalId, options) {
     if (options) {
         const buttons = options.buttons;
         
-        var modalButtons = modal.querySelector('.modal-footer');
+        var modalButtons = null;
+        try {
+            var modalButtons = modal.querySelector('.modal-footer');
+        } catch (e) {}
+        
         if (!modalButtons) {
             const footer = document.createElement('footer');
             footer.classList.add('modal-footer');
