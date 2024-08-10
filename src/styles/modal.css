@@ -10,8 +10,8 @@
     flex-direction: column;
     scale: 0.9;
     border: none;
-    background-color: #EBEBEB80;
-    backdrop-filter: blur(20px);
+    background-color: #EBEBEB30;
+    backdrop-filter: blur(7px);
     border-radius: 1em;
     box-shadow: var(--shadow);
 
