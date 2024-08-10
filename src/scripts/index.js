@@ -45,16 +45,6 @@ function openCloseModal() {
     }
 }
 
-function openCloseModal() {
-    const modal = document.querySelector('.modal#incoming');
-    if (modal.classList.contains('open')) {
-        closeModal('incoming');
-        setTimeout(() => {
-            openModal('incoming');
-        }, 400);
-    }
-}
-
 const inDevelopment = true;
 document.addEventListener('DOMContentLoaded', () => {
     if (inDevelopment) {
