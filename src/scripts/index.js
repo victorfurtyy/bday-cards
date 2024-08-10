@@ -35,7 +35,7 @@ function splashAnimation() {
 }
 
 
-const inDevelopment = false;
+const inDevelopment = true;
 document.addEventListener('DOMContentLoaded', () => {
     if (inDevelopment) window.location.href = 'indevelopment.html';
 
