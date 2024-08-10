@@ -3,4 +3,8 @@ export const USERS = {
         desc: "Carlos Victor",
         img: "favico.png"
     },
+    "arauujobeatriz": {
+        desc: "Ana Beatriz",
+        img: "oikabeatriz.jpg"
+    },
 }
