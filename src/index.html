@@ -12,24 +12,67 @@
     <meta property="og:image" content="https://bday-cards.victorfurtyy.tech/assets/favico-BlSqvj48.png">
     
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/modal.css">
+    <link rel="stylesheet" href="styles/photocard.css">
 </head>
-<body onload="openModal('incoming')">
+<body>
 
-    <dialog class="modal" id="incoming">
+    
+    <dialog class="modal" id="identify">
         <header class="modal-header">
             <h3>Em desenvolvimento</h3>
             <p>Em alguns momentos, tudo estará pronto para você.</p>
         </header>
-        
-        <footer class="modal-footer delay-close">
-            <button class="close" onclick="closeOpenModal()">Aguarde</button>
-        </footer>
+
+        <main class="modal-content">
+            <input type="text" id="indentifier" placeholder="@exemplo">
+        </main>
     </dialog>
 
+    <div class="photocard">
+        <div class="hint-information">
+            <div class="bar">
+                <span class="thumb"></span>
+            </div>
+        </div>
 
-    <div class="background"></div>
-    <div class="background-gradient"></div>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide back"></div>
+            <div class="swiper-slide front">
+                <div class="alt-text-backdrop">
+                    <p class="alt-text">Lorem ipsum</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="aurora-background single-background">
+        <div class="color-background"></div>
+        <div class="aurora" style="
+            --bg: var(--blue);
+            --top: 0;
+            --left: 0;
+            --size: 75%;
+            --duration: 15s;
+        "></div>
+        <div class="aurora" style="
+            --bg: var(--yellow);
+            --top: 55%;
+            --left: 10%;
+            --size: 95%;
+            --duration: 7s;
+        "></div>
+        <div class="aurora" style="
+            --bg: var(--pink);
+            --top: 25%;
+            --left: 20%;
+            --size: 50%;
+            --duration: 10s;
+        "></div>
+    </div>
 
     <script src="scripts/index.js" type="module"></script>
+    <script src="scripts/modal.js" type="module"></script>
+    <script src="scripts/photocard.js" type="module"></script>
 </body>
 </html>

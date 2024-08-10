@@ -1,63 +1,55 @@
-import Swiper from 'swiper/bundle';
-import 'swiper/css/bundle';
+import { toggleHint } from "./photocard";
+import { openModal, closeModal, shakeModal } from "./modal";
+import { USERS } from "./users";
 
 if (process.env.NODE_ENV === 'development') document.title = 'B-DAY Photo | DEV';
 
 
-function openModal(modalId) {
-    const modal = document.querySelector('.modal#'+modalId);
-    modal.classList.add('open');
-    modal.showModal();
-}
-window.openModal = openModal;
+function validateUser(username) {
+    username = username.replace('@', '');
+    
+    if (USERS[username]) {
+        const user = USERS[username];
+        const img = document.querySelector('.photocard .front');
+        const desc = document.querySelector('.photocard .alt-text');
 
-function closeModal(modalId) {
-    const modal = document.querySelector('.modal#'+modalId);
-    modal.classList.remove('open');
+        img.style.backgroundImage = `url(${user.img})`;
+        desc.innerText = user.desc;
 
-    const duration = Number(getComputedStyle(modal).getPropertyValue('--modal-transition').replace('s', ''))*1000
-    setTimeout(() => modal.close(), duration);
-}
-window.closeModal = closeModal;
-
-function toggleModal(modalId) {
-    const modal = document.querySelector('.modal');
-    if (modal.classList.contains('open')) closeModal(modalId);
-    else openModal(modalId);
-}
-window.toggleModal = toggleModal;
-
-
-function closeOpenModal() {
-    const modal = document.querySelector('.modal.open');
-    closeModal(modal.id);
-    const duration = Number(getComputedStyle(modal).getPropertyValue('--modal-transition').replace('s', ''))*1000
-    setTimeout(() => openModal(modal.id), duration);
-}
-window.closeOpenModal = closeOpenModal;
-
-
-const swiper = new Swiper('.swiper', {
-    effect: 'flip',
-    loop: true,
-    on: {
-        activeIndexChange: function () {
-            if (this.activeIndex === 1) 
-                disableHint();
-        }
+        return true;
     }
+
+    return false;
+}
+
+
+function splashAnimation() {
+    const background = document.querySelector('.aurora-background');
+    background.classList.toggle('single-background');
+
+    const duration = Number(getComputedStyle(background).getPropertyValue('--splash-animation').replace('s', ''))*1000
+    
+    setTimeout(toggleHint, duration);
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const modalOptions = {
+        buttons: [
+            {
+                text: "Enviar",
+                callback: () => {
+                    const input = document.querySelector('#indentifier');
+
+                    if (validateUser(input.value)) {
+                        splashAnimation();
+                        closeModal('identify');
+                        return;
+                    }
+                    shakeModal();
+                }
+            }
+        ]
+    }
+    openModal('identify', modalOptions);
 });
-window.swiper = swiper;
-
-
-
-function disableHint() {
-    swiper.el.classList.remove('hint');
-}
-
-
-// REMOVE
-function toggleHint() {
-    swiper.el.classList.toggle('hint');
-}
-window.toggleHint = toggleHint;

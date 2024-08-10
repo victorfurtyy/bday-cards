@@ -1,0 +1,109 @@
+.modal {
+    opacity: 0;
+    transition: var(--modal-transition), scale var(--modal-transition) cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    width: 80%;
+    max-width: 30em;
+    margin: 0 auto;
+    top: 50%; 
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    scale: 0.9;
+    border: none;
+    background-color: #EBEBEB80;
+    backdrop-filter: blur(20px);
+    border-radius: 1em;
+    box-shadow: var(--shadow);
+
+    &::backdrop {
+        transition: var(--modal-transition);
+        transition-delay: .2s;
+        background-color: #00000000;
+        backdrop-filter: blur(0px);
+    }
+    
+    &.open {
+        opacity: 1;
+        scale: 1;
+
+        &::backdrop {
+            background-color: #00000010;
+            backdrop-filter: blur(2px);
+        }
+    }
+
+    .modal-header {
+        padding: 2em;
+        text-align: center;
+        display: grid;
+        gap: .75em;
+    }
+    .modal-content {
+        width: 100%;
+        display: grid;
+        place-items: center;
+        padding: 2em;
+        padding-top: 0;
+    }
+
+    .modal-footer {
+        width: 100%;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        user-select: none;
+
+        .side-button {
+            display: flex;
+            width: 100%;
+            
+            button:nth-child(1) {
+                border-right: 1px solid #00000030;
+            }
+            button:nth-child(2) {
+                border-left: 1px solid #00000030;
+            }
+        }
+
+        button {
+            position: relative;
+            border: none;
+            background-color: transparent;
+            padding: 1rem;
+            color: #000000;
+            cursor: pointer;
+            transition: background-color .1s;
+            width: 100%;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+
+            &::before {
+                content: '';
+                width: 100%;
+                height: 2px;
+                background-color: #00000030;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            &:active {
+                background-color: #00000010;
+            }
+        }
+    }
+}
+
+
+
+.modal.shake {
+    animation: shake .5s;
+}
+
+@keyframes shake {
+    0% { left: 0; }
+    25% { left: -1em; }
+    50% { left: 1em; }
+    75% { left: -1em; }
+    100% { left: 0; }
+}
