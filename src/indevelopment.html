@@ -13,39 +13,33 @@
     
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/modal.css">
-    <link rel="stylesheet" href="styles/photocard.css">
 </head>
-<body>
-    
-    <dialog class="modal" id="identify">
-        <header class="modal-header">
-            <h3>Quem é você?</h3>
-            <p>Insira seu @ para te identificarmos</p>
-        </header>
+<body onload="openModal('incoming')">
 
-        <main class="modal-content">
-            <input type="text" id="indentifier" placeholder="@exemplo">
-        </main>
+    <dialog class="modal" id="incoming">
+        <header class="modal-header">
+            <h3>Em desenvolvimento</h3>
+            <p>Em alguns momentos, tudo estará pronto para você.</p>
+        </header>
+        
+        <footer class="modal-footer delay-close">
+            <button class="close" onclick="closeOpenModal()">Aguarde</button>
+        </footer>
     </dialog>
 
-    <div class="photocard">
-        <div class="hint-information">
-            <div class="bar">
-                <span class="thumb"></span>
-            </div>
-        </div>
+    <div style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur(3px);
+        background: url('./img/background.png');;
+        background-size: cover;
+        background-position: center;
+    "></div>
 
-        <div class="swiper-wrapper">
-            <div class="swiper-slide back"></div>
-            <div class="swiper-slide front">
-                <div class="alt-text-backdrop">
-                    <p class="alt-text">Lorem ipsum</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="aurora-background single-background">
+    <div class="aurora-background">
         <div class="color-background"></div>
         <div class="aurora" style="
             --bg: var(--blue);
@@ -70,8 +64,7 @@
         "></div>
     </div>
 
-    <script src="scripts/index.js" type="module"></script>
+    <script src="scripts/indevelopment.js" type="module"></script>
     <script src="scripts/modal.js" type="module"></script>
-    <script src="scripts/photocard.js" type="module"></script>
 </body>
 </html>
