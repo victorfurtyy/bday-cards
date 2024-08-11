@@ -1,7 +1,7 @@
 export const USERS = {
-    "!victorfurtyy": {
+    "victorfurtyy": {
         desc: "Carlos Victor",
-        img: ""
+        img: "https://www.dropbox.com/scl/fi/ii7wjbosdojxd7bxdiny2/IMG_2030.JPG?rlkey=9zqqw38ds0nc56igb870lrj7m&st=56e3rent&raw=1"
     },
     "arauujobeatriz": {
         desc: "Ana Beatriz",
@@ -9,7 +9,7 @@ export const USERS = {
     },
     "norman": {
         desc: "Norman",
-        img: ""
+        img: "https://www.dropbox.com/scl/fi/a0o41wa4g5k8kbeu5gbqo/6b412ad1-3d30-4487-9f3e-f57bc6a42ffd.jpeg?rlkey=ootidccg4sh6trdn3sjj1yqio&st=3737dmpo&raw=1"
     },
     "furtadoirlene": {
         desc: "Irlene Furtado",
