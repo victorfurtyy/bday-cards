@@ -45,7 +45,7 @@ function openCloseModal() {
     }
 }
 
-const inDevelopment = true;
+const inDevelopment = false;
 document.addEventListener('DOMContentLoaded', () => {
     if (inDevelopment) {
         openModal('incoming', {
